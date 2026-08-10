@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快樂成長安親課輔班 - 陪伴孩子快樂學習與成長</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 圖示庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',    <!-- 主色調：靛藍 -->
+                        secondary: '#F59E0B',  <!-- 輔助色：暖黃 -->
+                        softbg: '#F3F4F6'     <!-- 背景色：淺灰 -->
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- 頂部導覽列 Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-md">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold text-gray-800 block">快樂成長</span>
+                        <span class="text-xs text-gray-500 block">課輔安親兒童中心</span>
+                    </div>
+                </div>
+
+                <!-- 電腦版導覽選單 -->
+                <nav class="hidden md:flex space-x-8 font-medium text-gray-600">
+                    <a href="#about" class="hover:text-primary transition-colors">關於我們</a>
+                    <a href="#courses" class="hover:text-primary transition-colors">特色課程</a>
+                    <a href="#teachers" class="hover:text-primary transition-colors">師資團隊</a>
+                    <a href="#news" class="hover:text-primary transition-colors">最新消息</a>
+                    <a href="#contact" class="hover:text-primary transition-colors">預約參觀</a>
+                </nav>
+
+                <!-- 手機版選單按鈕 -->
+                <div class="md:hidden">
+                    <button id="menuBtn" class="text-gray-600 hover:text-gray-900 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機版選單展開區 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-4 space-y-3">
+            <a href="#about" class="block text-gray-600 hover:text-primary font-medium py-1">關於我們</a>
+            <a href="#courses" class="block text-gray-600 hover:text-primary font-medium py-1">特色課程</a>
+            <a href="#teachers" class="block text-gray-600 hover:text-primary font-medium py-1">師資團隊</a>
+            <a href="#news" class="block text-gray-600 hover:text-primary font-medium py-1">最新消息</a>
+            <a href="#contact" class="block text-gray-600 hover:text-primary font-medium py-1">預約參觀</a>
+        </div>
+    </header>
+
+    <!-- 主頁 Hero 區域 -->
+    <section class="relative bg-gradient-to-r from-indigo-50 to-amber-50 py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="md:w-1/2 space-y-6 text-center md:text-left">
+                <span class="inline-block px-4 py-1.5 bg-amber-100 text-amber-800 rounded-full text-sm font-semibold tracking-wide">
+                    🌟 2026 新學期熱烈招生中
+                </span>
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
+                    讓學習變成探索<br>陪伴孩子適性成長
+                </h1>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    我們提供安全溫馨的環境、專業紮實的課業輔導，以及豐富多元的才藝與創客課程，讓每位孩子在愛與鼓勵中建立自信！
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    <a href="#contact" class="px-8 py-3.5 bg-primary text-white font-semibold rounded-xl shadow-lg hover:bg-indigo-700 transition duration-300 text-center">
+                        立即預約體驗參觀
+                    </a>
+                    <a href="#courses" class="px-8 py-3.5 bg-white text-gray-700 font-semibold rounded-xl shadow hover:bg-gray-100 transition duration-300 text-center">
+                        瞭解課程內容
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <!-- 示意圖區塊 -->
+                <div class="relative w-full max-w-lg h-80 sm:h-96 bg-indigo-100 rounded-2xl shadow-xl flex flex-col items-center justify-center p-6 text-indigo-900 border-4 border-white">
+                    <i class="fa-solid fa-child-reaching text-7xl text-indigo-500 mb-4"></i>
+                    <p class="text-xl font-bold">[快樂學習中的小朋友示意圖]</p>
+                    <p class="text-sm text-indigo-600 mt-2 text-center">明亮寬敞的課輔教室與閱讀角落</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 關於我們 About -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">辦學理念與優勢</h2>
+                <p class="text-gray-600">我們不只是安親班，更是孩子放學後的第二個溫馨家庭。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 優勢卡片 1 -->
+                <div class="p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition duration-300 border border-gray-100 text-center">
+                    <div class="w-16 h-16 bg-indigo-100 text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">小班精緻教學</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        嚴格控管每班人數，確保師生比最佳化，老師能照顧到每一位孩子作業與學習狀況。
+                    </p>
+                </div>
+
+                <!-- 優勢卡片 2 -->
+                <div class="p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition duration-300 border border-gray-100 text-center">
+                    <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">健康均衡點心</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        每日提供新鮮現做營養點心與季節水果，補足孩子放學後的能量，活力滿滿。
+                    </p>
+                </div>
+
+                <!-- 優勢卡片 3 -->
+                <div class="p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition duration-300 border border-gray-100 text-center">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">嚴格安全防護</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        門禁嚴格管理、全區監視器監控，配合專人接送服務，讓家長上班無後顧之憂。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色課程 Courses -->
+    <section id="courses" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">特色課程規劃</h2>
+                <p class="text-gray-600">兼顧國小課業品質，同時啟發孩子的多元潛能與興趣。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 課程 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-48 bg-indigo-500 flex items-center justify-center text-white text-5xl">
+                        <i class="fa-solid fa-pencil"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-indigo-100 text-indigo-800 rounded">年級：小一 至 小六</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-3 mb-2">課後作業指導班</h3>
+                        <p class="text-gray-600 text-sm mb-4">專業師資個別叮嚀作業完成、觀念複習與單元考前猜題，建立良好自主學習習慣。</p>
+                    </div>
+                </div>
+
+                <!-- 課程 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-48 bg-amber-500 flex items-center justify-center text-white text-5xl">
+                        <i class="fa-solid fa-language"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-amber-100 text-amber-800 rounded">年級：小一 至 小六</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-3 mb-2">生活美語美式班</h3>
+                        <p class="text-gray-600 text-sm mb-4">情境式英語教學、注重聽說能力培養，搭配主題繪本讀本，輕鬆提升英語實力。</p>
+                    </div>
+                </div>
+
+                <!-- 課程 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-48 bg-emerald-500 flex items-center justify-center text-white text-5xl">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded">年級：小三 至 小六</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-3 mb-2">STEAM 創客程式</h3>
+                        <p class="text-gray-600 text-sm mb-4">結合邏輯思考與積木程式設計（Scratch/Python 啟蒙），培養邏輯思維與解決問題能力。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 師資團隊 Teachers -->
+    <section id="teachers" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">專業師資陣容</h2>
+                <p class="text-gray-600">我們的老師皆具備教育熱忱與豐富教學經驗，富有耐心與愛心。</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 老師 1 -->
+                <div class="text-center p-6 bg-gray-50 rounded-2xl">
+                    <div class="w-24 h-24 rounded-full bg-indigo-200 mx-auto mb-4 flex items-center justify-center text-3xl text-indigo-600">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">張主任 (David)</h3>
+                    <p class="text-xs text-indigo-600 font-semibold mb-2">園所主任 / 12年幼教經驗</p>
+                    <p class="text-xs text-gray-500">致力於提供安全溫馨的學習環境，用心陪伴每個孩子成長。</p>
+                </div>
+
+                <!-- 老師 2 -->
+                <div class="text-center p-6 bg-gray-50 rounded-2xl">
+                    <div class="w-24 h-24 rounded-full bg-amber-200 mx-auto mb-4 flex items-center justify-center text-3xl text-amber-600">
+                        <i class="fa-solid fa-user-nurse"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">林老師 (Emily)</h3>
+                    <p class="text-xs text-amber-600 font-semibold mb-2">低年級課輔導師</p>
+                    <p class="text-xs text-gray-500">特別注重初入學幼童的生活習慣引導與課業奠基。</p>
+                </div>
+
+                <!-- 老師 3 -->
+                <div class="text-center p-6 bg-gray-50 rounded-2xl">
+                    <div class="w-24 h-24 rounded-full bg-emerald-200 mx-auto mb-4 flex items-center justify-center text-3xl text-emerald-600">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">陳老師 (Jason)</h3>
+                    <p class="text-xs text-emerald-600 font-semibold mb-2">中高年級數學/STEAM講師</p>
+                    <p class="text-xs text-gray-500">善於將複雜的數學與科學觀念化為趣味遊戲。</p>
+                </div>
+
+                <!-- 老師 4 -->
+                <div class="text-center p-6 bg-gray-50 rounded-2xl">
+                    <div class="w-24 h-24 rounded-full bg-rose-200 mx-auto mb-4 flex items-center justify-center text-3xl text-rose-600">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Sarah 老師</h3>
+                    <p class="text-xs text-rose-600 font-semibold mb-2">專任外籍美語教師</p>
+                    <p class="text-xs text-gray-500">活潑生動的互動教學，讓孩子自然而然說出一口流利英語。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新消息 News -->
+    <section id="news" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">最新消息與公告</h2>
+                <p class="text-gray-600">隨時掌握園所最新活動與招生公告。</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer hover:border-primary border border-transparent transition" onclick="showNewsModal('2026/08/01', '2026 秋季班熱烈招募中！', '即日起預約報名秋季課輔班，前 20 名即可享有首月教材費 9 折優惠，歡迎家長預約帶孩子來參觀環境！')">
+                    <div class="flex items-center space-x-4">
+                        <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full whitespace-nowrap">招生公告</span>
+                        <h3 class="text-base font-bold text-gray-800">2026 秋季班熱烈招募中！早鳥享優惠</h3>
+                    </div>
+                    <span class="text-xs text-gray-400">2026-08-01</span>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer hover:border-primary border border-transparent transition" onclick="showNewsModal('2026/07/15', '夏令營圓滿落幕！感謝家長支持', '今年夏令營在孩子們的笑聲中圓滿閉幕！照片已同步上傳至官方群組，歡迎家長下載留念。')">
+                    <div class="flex items-center space-x-4">
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-semibold rounded-full whitespace-nowrap">園所活動</span>
+                        <h3 class="text-base font-bold text-gray-800">夏令營圓滿落幕！精采活動回顧</h3>
+                    </div>
+                    <span class="text-xs text-gray-400">2026-07-15</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 預約參觀與聯絡 Contact -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- 聯絡資訊 -->
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-gray-900">歡迎預約參觀園所</h2>
+                    <p class="text-gray-600">我們隨時歡迎您與孩子前來參觀環境，請填寫右側表單或透過以下方式聯繫我們。</p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-indigo-100 text-primary rounded-lg flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">園所地址</h4>
+                                <p class="text-gray-600">台北市大安區教育路 123 號 (捷運站 3 號出口步行 5 分鐘)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-indigo-100 text-primary rounded-lg flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">電話號碼</h4>
+                                <p class="text-gray-600">(02) 2345-6789 / 0912-345-678</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-indigo-100 text-primary rounded-lg flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">服務時間</h4>
+                                <p class="text-gray-600">週一至週五：11:00 - 21:00 (例假日休息)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 預約表單 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">家長姓名 *</label>
+                            <input type="text" required placeholder="例如：王小明 爸爸/媽媽" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">聯絡電話 *</label>
+                            <input type="tel" required placeholder="0912345678" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">孩子就讀年級</label>
+                            <select class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none">
+                                <option>升幼兒園大班 / 幼小銜接</option>
+                                <option>國小一年級 ~ 二年級</option>
+                                <option>國小三年級 ~ 四年級</option>
+                                <option>國小五年級 ~ 六年級</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">備註 / 想諮詢的課程</label>
+                            <textarea rows="3" placeholder="請填寫您想詢問的內容..." class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow hover:bg-indigo-700 transition duration-300">
+                            送出預約表單
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-2">© 2026 快樂成長課輔安親兒童中心. All rights reserved.</p>
+            <p class="text-xs text-gray-500">陪伴孩子走好學習的每一步</p>
+        </div>
+    </footer>
+
+    <!-- 自訂訊息彈出盒 (代替 alert) -->
+    <div id="customModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 text-center shadow-xl">
+            <div id="modalIcon" class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 id="modalTitle" class="text-xl font-bold text-gray-900 mb-2">預約成功！</h3>
+            <p id="modalMessage" class="text-gray-600 mb-6">我們已收到您的資訊，將會盡快安排專人與您聯繫。</p>
+            <button onclick="closeModal()" class="w-full py-2.5 bg-primary text-white font-medium rounded-lg">確認</button>
+        </div>
+    </div>
+
+    <!-- JavaScript 互動 logic -->
+    <script>
+        // 手機版選單切換
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 表單送出處理
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('modalTitle').innerText = "預約送出成功！";
+            document.getElementById('modalMessage').innerText = "感謝您的預約！專員將於 24 小時內透過電話與您確認參觀時間。";
+            document.getElementById('customModal').classList.remove('hidden');
+            event.target.reset();
+        }
+
+        // 顯示最新消息 Modal
+        function showNewsModal(date, title, content) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalMessage').innerText = content;
+            document.getElementById('customModal').classList.remove('hidden');
+        }
+
+        // 關閉 Modal
+        function closeModal() {
+            document.getElementById('customModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
