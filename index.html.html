@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>貝特美語 Better English - 陪伴孩子快樂學習與成長</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 圖示庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',    <!-- 主色調：靛藍 -->
+                        secondary: '#F59E0B',  <!-- 輔助色：暖黃 -->
+                        softbg: '#F3F4F6'     <!-- 背景色：淺灰 -->
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- 頂部導覽列 Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-md">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold text-gray-800 block">貝特美語</span>
+                        <span class="text-xs text-gray-500 block">Better English Cram School</span>
+                    </div>
+                </div>
+
+                <!-- 電腦版導覽選單 -->
+                <nav class="hidden md:flex space-x-8 font-medium text-gray-600">
+                    <a href="#about" class="hover:text-primary transition-colors">關於貝特</a>
+                    <a href="#courses" class="hover:text-primary transition-colors">特色課程</a>
+                    <a href="#teachers" class="hover:text-primary transition-colors">園所負責人</a>
+                    <a href="#news" class="hover:text-primary transition-colors">最新消息</a>
+                    <a href="#contact" class="hover:text-primary transition-colors">預約參觀</a>
+                </nav>
+
+                <!-- 手機版選單按鈕 -->
+                <div class="md:hidden">
+                    <button id="menuBtn" class="text-gray-600 hover:text-gray-900 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機版選單展開區 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-4 space-y-3">
+            <a href="#about" class="block text-gray-600 hover:text-primary font-medium py-1">關於貝特</a>
+            <a href="#courses" class="block text-gray-600 hover:text-primary font-medium py-1">特色課程</a>
+            <a href="#teachers" class="block text-gray-600 hover:text-primary font-medium py-1">園所負責人</a>
+            <a href="#news" class="block text-gray-600 hover:text-primary font-medium py-1">最新消息</a>
+            <a href="#contact" class="block text-gray-600 hover:text-primary font-medium py-1">預約參觀</a>
+        </div>
+    </header>
+
+    <!-- 主頁 Hero 區域 -->
+    <section class="relative bg-gradient-to-r from-indigo-50 to-amber-50 py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="md:w-1/2 space-y-6 text-center md:text-left">
+                <span class="inline-block px-4 py-1.5 bg-amber-100 text-amber-800 rounded-full text-sm font-semibold tracking-wide">
+                    ☀️ 精彩夏令營熱烈進行中
+                </span>
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
+                    貝特美語<br><span class="text-primary">讓孩子自信開啟世界之窗</span>
+                </h1>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    我們提供安全溫馨的學習環境、專業紮實的課業輔導與生活美語，讓每位孩子在愛與鼓勵中快樂成長！
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    <a href="#contact" class="px-8 py-3.5 bg-primary text-white font-semibold rounded-xl shadow-lg hover:bg-indigo-700 transition duration-300 text-center">
+                        立即預約體驗參觀
+                    </a>
+                    <a href="#courses" class="px-8 py-3.5 bg-white text-gray-700 font-semibold rounded-xl shadow hover:bg-gray-100 transition duration-300 text-center">
+                        瞭解課程內容
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <!-- 無版權圖片：快樂學習的小朋友 -->
+                <div class="relative w-full max-w-lg overflow-hidden rounded-2xl shadow-xl border-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="快樂學習的小朋友" class="w-full h-80 sm:h-96 object-cover hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 關於我們 About -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">辦學理念與優勢</h2>
+                <p class="text-gray-600">貝特美語不只是課輔班，更是孩子放學後充滿歡笑與成就感的第二個家。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 優勢卡片 1 -->
+                <div class="p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition duration-300 border border-gray-100 text-center">
+                    <div class="w-16 h-16 bg-indigo-100 text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">溫馨學習氛圍</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        打造如家一般溫暖的空間，鼓勵孩子主動發問，並在正面引導中建立自信心。
+                    </p>
+                </div>
+
+                <!-- 優勢卡片 2 -->
+                <div class="p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition duration-300 border border-gray-100 text-center">
+                    <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">沉浸式美語環境</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        將美語融入日常對話與情境活動中，讓孩子自然而然敢開口、喜歡說美語。
+                    </p>
+                </div>
+
+                <!-- 優勢卡片 3 -->
+                <div class="p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition duration-300 border border-gray-100 text-center">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-pump-soap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">乾淨舒適環境</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        重視環境清潔與衛生管理，為孩子提供一個健康、明亮且專注學習的場所。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色課程 Courses -->
+    <section id="courses" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">特色課程規劃</h2>
+                <p class="text-gray-600">兼顧學校課業品質，同時開啟美語國際視野。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- 課程 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="課後作業指導" class="h-56 w-full object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-indigo-100 text-indigo-800 rounded">年級：小一 至 小六</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-3 mb-2">國小課後作業輔導班</h3>
+                        <p class="text-gray-600 text-sm mb-4">陪伴孩子完成學校作業與單元複習，培養孩子主動學習與良好的時間管理習慣。</p>
+                    </div>
+                </div>
+
+                <!-- 課程 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="生活美語班" class="h-56 w-full object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-amber-100 text-amber-800 rounded">年級：小一 至 小六</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-3 mb-2">貝特生活美語班</h3>
+                        <p class="text-gray-600 text-sm mb-4">活潑的情境式英語教學、故事繪本閱讀與口語表達，全面提升孩子聽說讀寫能力。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 園所負責人 Teachers -->
+    <section id="teachers" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">園所負責人</h2>
+                <p class="text-gray-600">用關懷與專業，陪伴每位孩子踏實成長。</p>
+            </div>
+
+            <div class="max-w-md mx-auto">
+                <!-- 黃主任 -->
+                <div class="text-center p-8 bg-gray-50 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-28 h-28 rounded-full bg-indigo-100 text-primary flex items-center justify-center mx-auto mb-6 border-4 border-indigo-200 shadow text-5xl">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900">黃主任 (Christy)</h3>
+                    <p class="text-sm text-indigo-600 font-semibold mt-1 mb-4">貝特美語 園所主任</p>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        秉持著對兒童教育的熱忱與愛心，重視孩子的身心發展與美語學習，致力為孩子打造一個安全、溫馨且充滿歡樂的學習天堂。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新消息 News -->
+    <section id="news" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">最新消息與公告</h2>
+                <p class="text-gray-600">掌握貝特美語的最新消息。</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer hover:border-primary border border-transparent transition" onclick="showNewsModal('2026/08/10', '夏令營開始了！', '貝特美語夏令營正式熱烈展開囉！期待與孩子們一起度過充實又快樂的暑假生活！如有參觀或諮詢需求，歡迎提前來電預約。')">
+                    <div class="flex items-center space-x-4">
+                        <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full whitespace-nowrap">園所活動</span>
+                        <h3 class="text-base font-bold text-gray-800">🎉 夏令營開始了！</h3>
+                    </div>
+                    <span class="text-xs text-gray-400">2026-08-10</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 預約參觀與聯絡 Contact -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- 聯絡資訊 -->
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-gray-900">歡迎預約參觀貝特美語</h2>
+                    <p class="text-gray-600">我們誠摯邀請您與孩子前來了解學習環境，請填寫右側表單或透過電話與我們聯繫。</p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-indigo-100 text-primary rounded-lg flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">園所地址</h4>
+                                <p class="text-gray-600">桃園市大溪區仁愛里 (W74J+97)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-indigo-100 text-primary rounded-lg flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">電話號碼</h4>
+                                <p class="text-gray-600">03-307-0838</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-indigo-100 text-primary rounded-lg flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">營業時間</h4>
+                                <div class="text-gray-600 text-sm space-y-1 mt-1">
+                                    <p>週一、週三 ~ 週五：11:00 – 19:00</p>
+                                    <p>週二：14:00 – 19:00</p>
+                                    <p class="text-gray-400">週六、週日：公休</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 預約表單 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">家長姓名 *</label>
+                            <input type="text" required placeholder="例如：王小明 爸爸/媽媽" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">聯絡電話 *</label>
+                            <input type="tel" required placeholder="0912345678" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">孩子就讀年級</label>
+                            <select class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none">
+                                <option>升幼兒園大班 / 幼小銜接</option>
+                                <option>國小一年級 ~ 二年級</option>
+                                <option>國小三年級 ~ 四年級</option>
+                                <option>國小五年級 ~ 六年級</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">備註 / 想諮詢的課程</label>
+                            <textarea rows="3" placeholder="請填寫您想詢問的內容..." class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow hover:bg-indigo-700 transition duration-300">
+                            送出預約參觀表單
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-2">© 2026 貝特美語 Better English Cram School. All rights reserved.</p>
+            <p class="text-xs text-gray-500">陪伴孩子走好學習與美語的每一步</p>
+        </div>
+    </footer>
+
+    <!-- 自訂訊息彈出盒 (代替 alert) -->
+    <div id="customModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 text-center shadow-xl">
+            <div id="modalIcon" class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 id="modalTitle" class="text-xl font-bold text-gray-900 mb-2">預約成功！</h3>
+            <p id="modalMessage" class="text-gray-600 mb-6">我們已收到您的資訊，將會盡快安排專人與您聯繫。</p>
+            <button onclick="closeModal()" class="w-full py-2.5 bg-primary text-white font-medium rounded-lg">確認</button>
+        </div>
+    </div>
+
+    <!-- JavaScript 互動 logic -->
+    <script>
+        // 手機版選單切換
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 表單送出處理
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('modalTitle').innerText = "預約送出成功！";
+            document.getElementById('modalMessage').innerText = "感謝您的預約！貝特美語的專員將於 24 小時內透過電話與您確認參觀時間。";
+            document.getElementById('customModal').classList.remove('hidden');
+            event.target.reset();
+        }
+
+        // 顯示最新消息 Modal
+        function showNewsModal(date, title, content) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalMessage').innerText = content;
+            document.getElementById('customModal').classList.remove('hidden');
+        }
+
+        // 關閉 Modal
+        function closeModal() {
+            document.getElementById('customModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
