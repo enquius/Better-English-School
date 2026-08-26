@@ -593,15 +593,15 @@
                 `就讀人數：${childCount} 位\n` +
                 `備註：${note}`;
 
-            // 把訊息複製到剪貼簿，使用者加好友後貼上傳送即可
+            // 先把訊息複製到剪貼簿，即使 LINE 沒自動帶入文字，家長也能直接貼上
             copyToClipboard(message);
 
-            // 跳到「加入好友」頁面；手機上若已安裝 LINE App 會自動開啟 App，
-            // 未安裝則停留在網頁版，這是 LINE 官方連結本身的行為。
-            const lineUrl = `https://line.me/R/ti/p/${encodeURIComponent(LINE_OA_ID)}`;
+            // 開啟 LINE 對話並自動帶入訊息內容；家長已加好友的話，
+            // 只要在 LINE 裡按一下「傳送」即可完成預約。
+            const lineUrl = `https://line.me/R/oaMessage/${encodeURIComponent(LINE_OA_ID)}/?${encodeURIComponent(message)}`;
             openLineLink(lineUrl);
 
-            showSuccessModal("預約資訊已複製！", "已將您的預約資訊複製到剪貼簿，即將為您開啟 LINE 加入好友頁面，加好友後請直接貼上並傳送訊息給我們，謝謝！");
+            showSuccessModal("即將開啟 LINE 對話！", "已為您打開 LINE 對話視窗，訊息內容已自動帶入，請確認後按下「傳送」即可完成預約。若尚未加入好友，請先點擊加入好友後再傳送喔！");
 
             event.target.reset();
             populateChildCountOptions();
