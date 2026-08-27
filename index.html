@@ -446,6 +446,11 @@
                         </div>
 
                         <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">希望預約參觀日期</label>
+                            <input type="date" id="bookingDate" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none">
+                        </div>
+
+                        <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">孩子就讀年級</label>
                             <select id="childGrade" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none">
                                 <option>升幼兒園大班 / 幼小銜接</option>
@@ -510,6 +515,12 @@
         document.addEventListener('DOMContentLoaded', () => {
             populateChildCountOptions();
             checkScheduledAnnouncements();
+
+            const bookingDateInput = document.getElementById('bookingDate');
+            if (bookingDateInput) {
+                const todayStr = new Date().toLocaleDateString('en-CA');
+                bookingDateInput.setAttribute('min', todayStr);
+            }
         });
 
         function checkScheduledAnnouncements() {
@@ -570,6 +581,7 @@
 
             const name = document.getElementById('parentName').value.trim();
             const phone = document.getElementById('parentPhone').value.trim();
+            const bookingDate = document.getElementById('bookingDate').value;
             const grade = document.getElementById('childGrade').value;
             const childCount = document.getElementById('childCount').value;
             const note = document.getElementById('bookingNote').value.trim() || '無';
@@ -598,10 +610,15 @@
                 return;
             }
 
+            const formattedDate = bookingDate
+                ? new Date(bookingDate + 'T00:00:00').toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' })
+                : '未指定，請協助安排';
+
             const message =
                 `【貝特美語 預約參觀】\n` +
                 `家長姓名：${name}\n` +
                 `聯絡電話：${phone}\n` +
+                `希望預約日期：${formattedDate}\n` +
                 `孩子就讀年級：${grade}\n` +
                 `就讀人數：${childCount} 位\n` +
                 `備註：${note}`;
@@ -649,9 +666,10 @@
 
     <!-- 右下角浮動 LINE 加好友按鈕 -->
     <a href="https://line.me/ti/p/%40179eqhqy" target="_blank"
-       class="fixed bottom-6 right-6 z-40 flex items-center justify-center w-14 h-14 bg-[#06C755] text-white rounded-full shadow-lg hover:brightness-95 transition"
-       aria-label="加入 LINE 好友">
+       class="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-5 h-14 bg-[#06C755] text-white rounded-full shadow-lg hover:brightness-95 transition"
+       aria-label="加我好友">
         <i class="fa-brands fa-line text-2xl"></i>
+        <span class="font-semibold text-sm whitespace-nowrap">加我好友</span>
     </a>
 
 </body>
