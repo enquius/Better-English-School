@@ -8,11 +8,13 @@
     <meta name="description" content="貝特美語 (Better English Cram School) 位於桃園市大溪區，提供國小課後作業輔導與生活美語課程。溫馨安全的學習環境，陪伴孩子快樂成長！預約電話：03-307-0838。">
     <meta name="keywords" content="貝特美語, Better English Cram School, 大溪安親班, 桃園美語補習班, 課後輔導, 兒童美語">
     <meta name="author" content="貝特美語">
-    <link rel="icon" href="/logo.png?v=1" type="image/png">
+    <link rel="icon" href="/logo.png?v=1" type="image/png" sizes="any">
 
     <meta property="og:title" content="貝特美語 Better English Cram School">
     <meta property="og:description" content="陪伴孩子快樂學習與成長！國小課後作業輔導班、貝特生活美語班熱烈招生中。">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="貝特美語 Better English Cram School">
+    <meta property="og:image" content="https://better-english-cram-school.vercel.app/logo.png">
 
     <script type="application/ld+json">
     {
@@ -20,6 +22,8 @@
       "@type": "EducationalOrganization",
       "name": "貝特美語",
       "alternateName": "Better English Cram School",
+      "logo": "https://better-english-cram-school.vercel.app/logo.png",
+      "image": "https://better-english-cram-school.vercel.app/logo.png",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "桃園市",
@@ -608,6 +612,14 @@
             if (cleanedPhone.length > 10) {
                 showWarningModal("電話號碼過長！", "聯絡電話不可超過 10 位數字，請確認輸入是否正確喔！");
                 return;
+            }
+
+            if (bookingDate) {
+                const todayStr = new Date().toLocaleDateString('en-CA');
+                if (bookingDate < todayStr) {
+                    showWarningModal("日期選擇錯誤！", "預約日期不能選擇過去的日期，請重新選擇喔！");
+                    return;
+                }
             }
 
             const formattedDate = bookingDate
